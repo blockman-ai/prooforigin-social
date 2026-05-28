@@ -1,4 +1,4 @@
-# prooforigin-social
+# Prooforigin-social
 A trust-first social network focused on verification, evidence, identity, reputation, and authentic digital communication.
 
 The Trust Layer of the Internet.
