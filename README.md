@@ -1,47 +1,36 @@
-# Prooforigin-social
-A trust-first social network focused on verification, evidence, identity, reputation, and authentic digital communication.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-The Trust Layer of the Internet.
+## Getting Started
 
-ProofOrigin Social is a trust-first social network where users can build reputation, share evidence, verify content, challenge claims, and establish digital trust.
+First, run the development server:
 
-## Core Principles
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-- Trust over virality
-- Evidence over opinion
-- Verification over assumptions
-- Reputation over followers
-- Accountability over anonymity
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Vision
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Instead of asking:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-"What is happening?"
+## Learn More
 
-ProofOrigin asks:
+To learn more about Next.js, take a look at the following resources:
 
-"What can be proven?"
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Status
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-Early MVP Development
+## Deploy on Vercel
 
-## Built With
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- Next.js
-- React
-- Supabase
-- Vercel
-- Railway
-
-## Future Features
-
-- Reputation Scores
-- Verification Scores
-- Evidence Records
-- Claim Challenges
-- Bitcoin Anchoring
-- Ordinal Identity
-- Proof of Publication
-- Community Trust Systems
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
