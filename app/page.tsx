@@ -1,55 +1,99 @@
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
-      <div className="max-w-6xl mx-auto px-6 py-20">
 
-        <h1 className="text-6xl font-bold mb-6">
-          ProofOrigin Social
-        </h1>
+      {/* Navbar */}
+      <nav className="border-b border-cyan-500/20">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-cyan-400">
+            ProofOrigin Social
+          </h1>
 
-        <p className="text-2xl text-cyan-400 mb-10">
-          The Trust Layer of the Internet
-        </p>
-
-        <p className="text-gray-300 max-w-3xl mb-12">
-          A social platform focused on verification,
-          evidence, identity, reputation, and authentic
-          digital communication.
-        </p>
-
-        <div className="grid md:grid-cols-4 gap-6">
-
-          <div className="p-6 rounded-2xl border border-cyan-500">
-            <h2 className="text-xl font-bold mb-2">
-              Feed
-            </h2>
-            <p>Discover trusted content.</p>
+          <div className="flex gap-6 text-sm">
+            <span>Home</span>
+            <span>Feed</span>
+            <span>Communities</span>
+            <span>Verify</span>
+            <span>Profile</span>
           </div>
-
-          <div className="p-6 rounded-2xl border border-cyan-500">
-            <h2 className="text-xl font-bold mb-2">
-              Communities
-            </h2>
-            <p>Join evidence-driven discussions.</p>
-          </div>
-
-          <div className="p-6 rounded-2xl border border-cyan-500">
-            <h2 className="text-xl font-bold mb-2">
-              Reputation
-            </h2>
-            <p>Build digital trust.</p>
-          </div>
-
-          <div className="p-6 rounded-2xl border border-cyan-500">
-            <h2 className="text-xl font-bold mb-2">
-              Verification
-            </h2>
-            <p>Verify claims and media.</p>
-          </div>
-
         </div>
+      </nav>
+
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 gap-6 p-6">
+
+        {/* Left Sidebar */}
+        <aside className="border border-cyan-500/20 rounded-2xl p-4">
+          <h2 className="font-bold mb-4">Trust Metrics</h2>
+
+          <div className="space-y-3 text-sm">
+            <p>Trust Score: --</p>
+            <p>Reputation: --</p>
+            <p>Evidence Score: --</p>
+            <p>Verification Score: --</p>
+          </div>
+        </aside>
+
+        {/* Main Feed */}
+        <section className="lg:col-span-2">
+
+          <div className="border border-cyan-500 rounded-2xl p-4 mb-6">
+            <h2 className="font-bold mb-3">Create Post</h2>
+
+            <textarea
+              className="w-full bg-black border border-cyan-500/20 rounded-lg p-3"
+              rows={4}
+              placeholder="What can be proven?"
+            />
+
+            <button className="mt-3 bg-cyan-500 text-black px-4 py-2 rounded-lg font-bold">
+              Post
+            </button>
+          </div>
+
+          <div className="space-y-4">
+
+            <div className="border border-cyan-500/20 rounded-2xl p-4">
+              <h3 className="font-bold">Satoshi</h3>
+              <p className="text-gray-300 mt-2">
+                Welcome to ProofOrigin Social.
+              </p>
+
+              <div className="mt-3 text-xs text-cyan-400">
+                VERIFIED
+              </div>
+            </div>
+
+            <div className="border border-cyan-500/20 rounded-2xl p-4">
+              <h3 className="font-bold">ProofOrigin</h3>
+              <p className="text-gray-300 mt-2">
+                The Trust Layer of the Internet.
+              </p>
+
+              <div className="mt-3 text-xs text-cyan-400">
+                VERIFIED
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* Right Sidebar */}
+        <aside className="border border-cyan-500/20 rounded-2xl p-4">
+          <h2 className="font-bold mb-4">
+            Trending Communities
+          </h2>
+
+          <div className="space-y-2 text-sm">
+            <p>#Bitcoin</p>
+            <p>#Ordinals</p>
+            <p>#Crypto</p>
+            <p>#Technology</p>
+            <p>#Science</p>
+          </div>
+        </aside>
 
       </div>
+
     </main>
   );
 }
