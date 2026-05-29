@@ -11,7 +11,7 @@ export default function Navbar() {
           <a href="/feed">Feed</a>
           <a href="/communities">Communities</a>
           <a href="/verify">Verify</a>
-          <a href="/profile">Profile</a>
+          <a href="/profile">Profile</a><a href="/login">Sign In</a><a href="/login">Sign In</a>
         </div>
       </div>
     </nav>
