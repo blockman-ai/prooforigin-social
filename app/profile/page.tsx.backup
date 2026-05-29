@@ -9,9 +9,6 @@ export default function ProfilePage() {
   const [displayName, setDisplayName] = useState("Askia Givens");
   const [username, setUsername] = useState("askia");
   const [bio, setBio] = useState("Building the Trust Layer of the Internet.");
-      avatar_url: uploadedAvatarUrl || avatarUrl,
-const [avatarFile, setAvatarFile] = useState<File | null>(null);
-const [avatarUrl, setAvatarUrl] = useState("");
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
@@ -20,7 +17,7 @@ const [avatarUrl, setAvatarUrl] = useState("");
 
       if (!userData.user) {
         setMessage("Not signed in");
-        return null;
+        return;
       }
 
       const user = userData.user;
@@ -55,34 +52,7 @@ const [avatarUrl, setAvatarUrl] = useState("");
     loadProfile();
   }, []);
 
-async function uploadAvatar(): Promise<string | null> {
-  if (!avatarFile) return avatarUrl || null;
-
-  const { data: userData } = await supabase.auth.getUser();
-
-  if (!userData.user) return null;
-
-  const filePath = `${userData.user.id}-${Date.now()}`;
-
-  const { error } = await supabase.storage
-    .from("avatars")
-    .upload(filePath, avatarFile, { upsert: true });
-
-  if (error) {
-    alert(error.message);
-    return null;
-  }
-
-  const { data } = supabase.storage
-    .from("avatars")
-    .getPublicUrl(filePath);
-
-  setAvatarUrl(data.publicUrl);
-  return data.publicUrl;
-}
-
   async function saveProfile() {
-  const uploadedAvatarUrl = await uploadAvatar();
     const cleanUsername = username.replace("@", "").trim().toLowerCase();
 
     const { error } = await supabase.from("profiles").upsert({
@@ -90,7 +60,6 @@ async function uploadAvatar(): Promise<string | null> {
       username: cleanUsername,
       display_name: displayName,
       bio,
-      avatar_url: uploadedAvatarUrl || avatarUrl,
       trust_score: 0,
       reputation_score: 0,
       identity_type: "standard",
@@ -98,7 +67,7 @@ async function uploadAvatar(): Promise<string | null> {
 
     if (error) {
       setMessage(error.message);
-      return null;
+      return;
     }
 
     setUsername(cleanUsername);
@@ -143,29 +112,6 @@ async function uploadAvatar(): Promise<string | null> {
           </div>
 
           <p className="text-sm text-gray-400 mb-4">Status: {message}</p>
-
-          <div className="mb-6">
-            <p className="text-cyan-400 mb-2">Profile Picture</p>
-
-            {avatarUrl ? (
-              <img
-                src={avatarUrl}
-                alt="Avatar"
-                className="w-24 h-24 rounded-full border border-cyan-500 object-cover mb-3"
-              />
-            ) : (
-              <div className="w-24 h-24 rounded-full border border-cyan-500 flex items-center justify-center text-3xl font-bold text-cyan-400 mb-3">
-                {displayName?.charAt(0) || "A"}
-              </div>
-            )}
-
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => setAvatarFile(e.target.files?.[0] || null)}
-              className="text-sm text-gray-300"
-            />
-          </div>
 
           <div className="space-y-3">
             <input
