@@ -10,11 +10,11 @@ export default function Home() {
           </h1>
 
           <div className="flex gap-6 text-sm">
-            <span>Home</span>
-            <span>Feed</span>
-            <span>Communities</span>
-            <span>Verify</span>
-            <span>Profile</span>
+            <a href="/">Home</a>
+            <a href="/feed">Feed</a>
+            <a href="/communities">Communities</a>
+            <a href="/verify">Verify</a>
+            <a href="/profile">Profile</a>
           </div>
         </div>
       </nav>
