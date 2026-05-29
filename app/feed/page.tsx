@@ -1,9 +1,10 @@
 import { supabase } from "@/lib/supabase";
 
 export default async function FeedPage() {
-  const { data, error } = await supabase
+  const { data: posts, error } = await supabase
     .from("posts")
-    .select("*");
+    .select("*")
+    .order("created_at", { ascending: false });
 
   return (
     <main className="min-h-screen bg-black text-white p-6">
@@ -12,14 +13,35 @@ export default async function FeedPage() {
       </h1>
 
       {error && (
-        <pre className="text-red-500">
-          {JSON.stringify(error, null, 2)}
-        </pre>
+        <p className="text-red-500 mb-4">
+          Error loading posts.
+        </p>
       )}
 
-      <pre className="text-sm">
-        {JSON.stringify(data, null, 2)}
-      </pre>
+      <div className="space-y-4">
+        {posts?.map((post) => (
+          <div
+            key={post.id}
+            className="border border-cyan-500/20 rounded-2xl p-4"
+          >
+            <div className="flex justify-between items-center mb-3">
+              <h2 className="font-bold">ProofOrigin</h2>
+
+              <span className="text-xs text-yellow-400 uppercase">
+                {post.verification_status}
+              </span>
+            </div>
+
+            <p className="text-gray-300">
+              {post.content}
+            </p>
+
+            <p className="text-xs text-gray-500 mt-4">
+              {new Date(post.created_at).toLocaleString()}
+            </p>
+          </div>
+        ))}
+      </div>
     </main>
   );
 }
