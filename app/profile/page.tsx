@@ -10,6 +10,7 @@ export default function ProfilePage() {
   const [username, setUsername] = useState("askia");
   const [bio, setBio] = useState("Building the Trust Layer of the Internet.");
 const [avatarUrl, setAvatarUrl] = useState("");
+const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
