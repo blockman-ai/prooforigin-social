@@ -81,11 +81,18 @@ async function uploadAvatar(): Promise<string | null> {
 }
 
   async function saveProfile() {
-  const uploadedAvatarUrl = await uploadAvatar();
+  const { data: userData } = await supabase.auth.getUser();
+
+    if (!userData.user) {
+      setMessage("Please sign in again.");
+      return;
+    }
+
+    const uploadedAvatarUrl = await uploadAvatar();
     const cleanUsername = username.replace("@", "").trim().toLowerCase();
 
     const { error } = await supabase.from("profiles").upsert({
-      id: userId,
+      id: userData.user.id,
       username: cleanUsername,
       display_name: displayName,
       bio,
