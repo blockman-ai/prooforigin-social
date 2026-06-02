@@ -11,6 +11,13 @@ export default function ProfilePage() {
   const [bio, setBio] = useState("Building the Trust Layer of the Internet.");
 const [avatarUrl, setAvatarUrl] = useState("");
 const [avatarFile, setAvatarFile] = useState<File | null>(null);
+  const [peopleHelped, setPeopleHelped] = useState(0);
+  const [recognitionsReceived, setRecognitionsReceived] = useState(0);
+  const [helpfulContributionRate, setHelpfulContributionRate] = useState(100);
+  const [impactScore, setImpactScore] = useState(0);
+  const [communityStanding, setCommunityStanding] = useState("New Contributor");
+  const [followersCount, setFollowersCount] = useState(0);
+  const [followingCount, setFollowingCount] = useState(0);
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
