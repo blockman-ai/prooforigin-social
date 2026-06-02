@@ -136,19 +136,39 @@ async function uploadAvatar(): Promise<string | null> {
 
           <p className="text-gray-300 mb-6">{bio}</p>
 
-          <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
+          <div className="mb-6 rounded-2xl border border-cyan-500/30 bg-cyan-500/5 p-5">
+          <p className="text-sm text-gray-400 mb-1">Community Standing</p>
+          <h3 className="text-2xl font-bold text-cyan-400 mb-4">{communityStanding}</h3>
+
+          <div className="grid grid-cols-2 gap-4 text-sm">
             <div className="border border-cyan-500/20 rounded-xl p-4">
-              <p className="text-gray-400">Trust Score</p>
-              <p className="text-2xl font-bold">0</p>
+              <p className="text-gray-400">People Helped</p>
+              <p className="text-2xl font-bold">{peopleHelped}</p>
             </div>
 
             <div className="border border-cyan-500/20 rounded-xl p-4">
-              <p className="text-gray-400">Reputation</p>
-              <p className="text-2xl font-bold">0</p>
+              <p className="text-gray-400">Recognitions Received</p>
+              <p className="text-2xl font-bold">{recognitionsReceived}</p>
+            </div>
+
+            <div className="border border-cyan-500/20 rounded-xl p-4">
+              <p className="text-gray-400">Helpful Rate</p>
+              <p className="text-2xl font-bold">{helpfulContributionRate}%</p>
+            </div>
+
+            <div className="border border-cyan-500/20 rounded-xl p-4">
+              <p className="text-gray-400">Impact Score</p>
+              <p className="text-2xl font-bold">{impactScore}</p>
             </div>
           </div>
 
-          <p className="text-sm text-gray-400 mb-4">Status: {message}</p>
+          <div className="mt-4 flex gap-6 text-sm text-gray-400">
+            <p>Followers: <span className="text-white">{followersCount}</span></p>
+            <p>Following: <span className="text-white">{followingCount}</span></p>
+          </div>
+        </div>
+
+        <p className="text-sm text-gray-400 mb-4">Status: {message}</p>
 
           <div className="mb-6">
             <p className="text-cyan-400 mb-2">Profile Picture</p>
