@@ -22,7 +22,22 @@ export default function Home() {
     loadPosts();
   }, []);
 
-  async function createPost() {
+  async function recognizePost(post: any) {
+  const { error } = await supabase.rpc("recognize_post", {
+    target_user_id: post.user_id,
+    target_post_id: post.id,
+  });
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  alert("Recognition sent. +10 impact.");
+  fetchPosts();
+}
+
+async function createPost() {
     setMessage("");
 
     const { data: userData } = await supabase.auth.getUser();
@@ -119,6 +134,7 @@ export default function Home() {
 
 <div className="flex gap-2 mb-3">
   <button
+    onClick={() => recognizePost(post)}
     className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-3 py-1 rounded-lg"
   >
     🏆 Recognize
