@@ -34,7 +34,7 @@ export default function Home() {
   }
 
   alert("Recognition sent. +10 impact.");
-  fetchPosts();
+  loadPosts();
 }
 
 async function createPost() {
