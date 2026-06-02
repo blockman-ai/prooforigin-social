@@ -117,6 +117,14 @@ export default function Home() {
 
               <p className="text-gray-200 mb-3">{post.content}</p>
 
+<div className="flex gap-2 mb-3">
+  <button
+    className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-3 py-1 rounded-lg"
+  >
+    🏆 Recognize
+  </button>
+</div>
+
               <p className="text-xs text-gray-500">
                 {post.created_at
                   ? new Date(post.created_at).toLocaleString()
